@@ -11,16 +11,26 @@ To run the exercises, first run ```roscore``` then follow the instructions:
 
 ### Exercise 1
 In a separate terminal, run:
-``` roslaunch exercise1 exercise1.launch```
+``` 
+roslaunch exercise1 exercise1.launch
+```
 ### Exercise 2
 In a separate terminal, run:
-``` roslaunch exercise2 exercise2.launch```
+```
+roslaunch exercise2 exercise2.launch
+```
 ### Exercise 3
 In a separate terminal, run:
-``` roslaunch exercise3 exercise3.launch```
+``` 
+roslaunch exercise3 exercise3.launch
+```
 ### Exercise 4
 In a separate terminal, run:
-``` roslaunch exercise4 exercise4.launch```
+```
+roslaunch exercise4 exercise4.launch
+```
 ### Exercise 5
 In a separate terminal, run:
-``` roslaunch exercise5 exercise5.launch```
+```
+roslaunch exercise5 exercise5.launch
+```
