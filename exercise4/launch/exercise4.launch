@@ -1,0 +1,29 @@
+<launch>
+
+  <!-- Turtlesim Node -->
+  <node pkg = "turtlesim" type = "turtlesim_node" name = "sim"/>
+
+  <!-- Spawn 3 more turtlesim -->
+  <node pkg = "rosservice" type = "rosservice"  name = "create_turtle2" args = 'call --wait /spawn "{x: 1.0, y: 4.0, theta: 2.3, name: turtle2}"'/>
+  <node pkg = "rosservice" type = "rosservice"  name = "create_turtle3" args = 'call --wait /spawn "{x: 2.0, y: 9.0, theta: 1.57, name: turtle3}"'/>
+  <node pkg = "rosservice" type = "rosservice"  name = "create_turtle4" args = 'call --wait /spawn "{x: 9.0, y: 4.5, theta: -1.57, name: turtle4}"'/>
+
+
+  <!-- Spawn Turtles -->
+  <node name="move_robot_1" pkg="exercise4" type="ex4_convergence" output="screen">
+      <param name="robot_name" value="turtle1"/>
+  </node>
+  
+  <node name="move_robot_2" pkg="exercise4" type="ex4_convergence" output="screen">
+      <param name="robot_name" value="turtle2"/>
+  </node>
+  
+  <node name="move_robot_3" pkg="exercise4" type="ex4_convergence" output="screen">
+      <param name="robot_name" value="turtle3"/>
+  </node>
+  
+  <node name="move_robot_4" pkg="exercise4" type="ex4_convergence" output="screen">
+      <param name="robot_name" value="turtle4"/>
+  </node>
+
+</launch>

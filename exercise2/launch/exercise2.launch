@@ -1,0 +1,14 @@
+<launch>
+	
+	<!-- Turtlesim Launcher -->
+	<node name = "sim" pkg = "turtlesim" type = "turtlesim_node" output = "screen"/>
+	
+	<!-- Commands Publisher Launcher -->
+	<node name = "ex2_turtlecontrol" pkg = "exercise2" type = "ex2_turtlecontrol" output = "screen">
+        <param name = "vel_lin_min" value = "$(arg vel_lin_min)"/>
+        <param name = "vel_lin_max" value = "$(arg vel_lin_max)"/>
+        <param name = "vel_ang_min" value = "$(arg vel_ang_min)"/>
+        <param name = "vel_ang_max" value = "$(arg vel_ang_max)"/>
+	</node>
+
+</launch>

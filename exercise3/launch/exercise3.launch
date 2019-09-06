@@ -1,0 +1,9 @@
+<launch>
+	
+	<!-- Turtlesim Launcher -->
+	<node name = "sim" pkg = "turtlesim" type = "turtlesim_node" output = "screen"/>
+	
+	<!-- Commands Publisher Launcher -->
+	<node name = "exercise3" pkg = "exercise3" type = "ex3_executable" output = "screen"/>
+
+</launch>

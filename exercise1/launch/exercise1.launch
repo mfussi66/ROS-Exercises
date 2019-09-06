@@ -1,0 +1,15 @@
+<launch>
+	
+	<!-- Turtlesim Launcher -->
+	<node name = "sim" pkg = "turtlesim" type = "turtlesim_node"/>
+	
+	<!-- Commands Publisher Launcher -->
+	<node name = "ex1_pub" pkg = "exercise1" type = "ex1_publisher" output = "screen"/>
+	
+	<!-- TF Listener Launcher -->	
+	<node name = "ex1_sub" pkg = "exercise1" type = "ex1_subscriber" output = "screen"/>
+	
+	<!-- Rviz Launcher -->
+	<node name = "rviz" pkg = "rviz" type = "rviz" output = "screen" args="-d $(find exercise1)/rviz/ex1_cfg.rviz"/>
+
+</launch>
