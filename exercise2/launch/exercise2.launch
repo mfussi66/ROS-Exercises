@@ -12,9 +12,9 @@
   </node>
   
    <!-- Commands Publisher Launcher --> 
-  <node name="topic_pub" pkg="rostopic" type="rostopic" args="pub -r 10 /control exercise2/control &quot; lin_vel: 1.0 &#13; ang_vel: 2.0 &quot;" output="screen"/>
+  <node name="topic_pub" pkg="rostopic" type="rostopic" args="pub -r 10 /control exercise2/control &quot; lin_vel: 1.0 &#13; ang_vel: 1.0 &quot;" output="screen"/>
   
   <!-- Rqt Plot Launcher -->	
-  <node name = "rqt_plot" pkg = "rqt_plot" type = "rqt_plot" output = "screen" args =" /turtle1/cmd_vel/angular/z /turtle1/cmd_vel/linear/x /control">
+  <node name = "rqt_plot" pkg = "rqt_plot" type = "rqt_plot" args =" /turtle1/cmd_vel/angular/z /turtle1/cmd_vel/linear/x /control" output = "screen"/>
 
 </launch>
