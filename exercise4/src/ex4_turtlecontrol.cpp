@@ -3,6 +3,8 @@
 #include "turtlesim/Pose.h"
 #include "exercise4/RobotStatus.h"
 
+#define N_ROBOTS 4
+
 // Structure definition for robot info
 struct status
 {
@@ -27,7 +29,6 @@ std::map<std::string, status> robots_state;
 bool team_ready = false;
 bool team_arrived = false;
 int robot_id = 0;
-const int robots_number = 4;
 float baricenter[2] = {0, 0};
 std::string robot_name = "turtle1";
 
@@ -106,8 +107,8 @@ void compute_goal(){
         baricenter[1] = baricenter[1] + temp.y;
     }
 
-    baricenter[0] = baricenter[0]/robots_number;
-    baricenter[1] = baricenter[1]/robots_number;
+    baricenter[0] = baricenter[0]/N_ROBOTS;
+    baricenter[1] = baricenter[1]/N_ROBOTS;
 
 }
 
@@ -135,13 +136,13 @@ void team_status_callback(const exercise4::RobotStatus::ConstPtr status_msg){
 	if (temp.arrived) arrived_counter++;
     }
         
-    if(ready_counter==robots_number && team_ready == false)
+    if(ready_counter==N_ROBOTS && team_ready == false)
     {
         ROS_INFO_STREAM(robot_name << ": Team is ready!");
         team_ready = true;
     }
     
-    if(arrived_counter == robots_number)
+    if(arrived_counter == N_ROBOTS)
     {
         ROS_INFO_STREAM(robot_name << ": Team has reached the goal!");
         team_arrived = true;
