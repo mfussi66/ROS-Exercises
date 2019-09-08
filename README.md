@@ -19,11 +19,11 @@ roslaunch exercise1 exercise1.launch
 Exercise 2 uses _rqt_plot_ and needs parameters for linear and angular speed saturations. 
 The launch file contains the linear and angular velocities that can be modified and sent to the custom /control topic:
 ```
- <node name="topic_pub" pkg="rostopic" type="rostopic" args="pub -r 10 /control exercise2/control &quot; lin_vel: 0.0 &#13; ang_vel: 0.0 &quot;" output="screen"/>
+ <node name="topic_pub" pkg="rostopic" type="rostopic" args="pub -r 10 /control exercise2/control &quot; lin_vel: <value> &#13; ang_vel: <value> &quot;" output="screen"/>
 ```
 In a terminal, run:
 ```
-roslaunch exercise2 exercise2.launch vel_lin_min:=-0.0 vel_lin_max:=0.0 vel_ang_min:=-0.0 vel_ang_max:=0.0
+roslaunch exercise2 exercise2.launch vel_lin_min:=<value> vel_lin_max:=<value> vel_ang_min:=<value> vel_ang_max:=<value>
 ```
 ### Exercise 3
 In a terminal, run:
