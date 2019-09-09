@@ -21,16 +21,14 @@ ros::Subscriber team_status_sub;
 ros::Publisher team_status_pub;
 ros::Publisher vel_pub;
 ros::Subscriber pose_sub;
-
 geometry_msgs::Twist cmd;
 
+std::string robot_name = "turtle1";
 std::map<std::string, status> robots_state;
-
 bool team_ready = false;
 bool team_arrived = false;
 int robot_id = 0;
 float baricenter[2] = {0, 0};
-std::string robot_name = "turtle1";
 
 // Functions definitions
 void pub_robot_status(float pos_x, float pos_y, bool is_ready, bool is_arrived){
@@ -64,9 +62,6 @@ void wait_for_team(float pos_x, float pos_y){
     ros::spinOnce();
     waitRate.sleep();
   }
-  
-  return;
-  
 }
 
 void check_previous_robot(){
@@ -81,17 +76,14 @@ void check_previous_robot(){
       
   while(ros::ok())
   {
-
     if (robots_state[prev_robot_name].arrived == true)
     {
       return;
     }
     
     ros::spinOnce();
-    waitRate.sleep();
-    
+    waitRate.sleep();   
   }
-  
 }
 
 void compute_goal(){
@@ -106,10 +98,8 @@ void compute_goal(){
         baricenter[0] = baricenter[0] + temp.x;
         baricenter[1] = baricenter[1] + temp.y;
     }
-
     baricenter[0] = baricenter[0]/N_ROBOTS;
     baricenter[1] = baricenter[1]/N_ROBOTS;
-
 }
 
 void team_status_callback(const exercise4::RobotStatus::ConstPtr status_msg){
@@ -147,7 +137,6 @@ void team_status_callback(const exercise4::RobotStatus::ConstPtr status_msg){
         ROS_INFO_STREAM(robot_name << ": Team has reached the goal!");
         team_arrived = true;
     }
-        
 }
 
 void get_pose(const turtlesim::Pose::ConstPtr pose_msg){
@@ -156,7 +145,6 @@ void get_pose(const turtlesim::Pose::ConstPtr pose_msg){
     robots_state[robot_name].x = pose_msg->x;
     robots_state[robot_name].y = pose_msg->y;
     robots_state[robot_name].theta = pose_msg->theta;
-    
 }
 
 void move_to_goal(float gain_dist, float gain_angle, float tol_dist, float tol_angle){
@@ -195,7 +183,6 @@ void move_to_goal(float gain_dist, float gain_angle, float tol_dist, float tol_a
     cmd.linear.x = 0.0;
     cmd.angular.z = 0.0; 
     vel_pub.publish(cmd);
-
 }
 
 int main(int argc, char **argv){
@@ -239,5 +226,4 @@ int main(int argc, char **argv){
     ros::spin();
         
     return 0;
-    
 }

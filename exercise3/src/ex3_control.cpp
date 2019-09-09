@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <cmath>
 
-// Global variables init to use between functions
+// Global variables definitions
 float pose_x = 0.0;
 float pose_y = 0.0;
 float pose_theta = 0.0;

@@ -37,13 +37,13 @@ In a terminal, run:
 roslaunch exercise4 exercise4.launch
 ```
 ### Exercise 5
-Exercise 5 uses 3 launch files to demonstrate the characteristics of the usage of potentials to get to a goal
+Exercise 5 uses 3 launch files to demonstrate the characteristics of the usage of potentials to get to a goal.
 The first two cases show the robot successfully reaching the goal:
 ```
 roslaunch exercise5 exercise5_1.launch
 roslaunch exercise5 exercise5_2.launch
 ```
-The third case show that the robot gets stuck in a local minima:
+The third case shows that the robot gets stuck in a local minima:
 ```
 roslaunch exercise5 exercise5_3.launch
 ```

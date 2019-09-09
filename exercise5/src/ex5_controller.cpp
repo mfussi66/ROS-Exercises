@@ -15,16 +15,16 @@ struct status{
     float theta;
 };
 
-// Structures global variables initializations
-status robot_state;
-vect obstacles[N_OBSTACLES];
-int obs_pose_sent = 0;
-
-float turtle_radius = 3;
-
+// Global variables initializations
 ros::Publisher vel_pub;
 ros::Subscriber pose_sub;
 
+status robot_state;
+vect obstacles[N_OBSTACLES];
+int obs_pose_sent = 0;
+float turtle_radius = 3;
+
+// Functions definitions
 float dist_vect(vect* v1, vect* v2){
   return sqrt(pow(v1->x - v2->x, 2) + pow(v1->y - v2->y, 2));
   }
