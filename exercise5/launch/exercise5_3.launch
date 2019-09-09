@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- Turtlesim Node -->
+  <node pkg = "turtlesim" type = "turtlesim_node" name = "sim"/>
+
+  <!-- Spawn 3 more turtlesim -->
+  <node pkg = "rosservice" type = "rosservice"  name = "create_obstacle1" args = 'call --wait /spawn "{x: 7.5, y: 2.3, theta: 0.0, name: obstacle1}"'/>
+  <node pkg = "rosservice" type = "rosservice"  name = "create_obstacle2" args = 'call --wait /spawn "{x: 8.5, y: 3, theta: 0.0, name: obstacle2}"'/>
+  
+  <!-- Spawn Turtles -->
+  <node name="my_robot" pkg="exercise5" type="ex5_avoidance" output="screen">
+      <param name="goal_x" value="9.7"/>
+      <param name="goal_y" value="0.5"/>
+  </node>
+
+</launch>
+
