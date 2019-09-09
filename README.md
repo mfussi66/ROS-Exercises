@@ -31,12 +31,19 @@ In a terminal, run:
 roslaunch exercise3 exercise3.launch
 ```
 ### Exercise 4
+Use the launch file in the folder to modify the initial position of the robots in the turtlesim.
 In a terminal, run:
 ```
 roslaunch exercise4 exercise4.launch
 ```
 ### Exercise 5
-In a terminal, run:
+Exercise 5 uses 3 launch files to demonstrate the characteristics of the usage of potentials to get to a goal
+The first two cases show the robot successfully reaching the goal:
 ```
-roslaunch exercise5 exercise5.launch
+roslaunch exercise5 exercise5_1.launch
+roslaunch exercise5 exercise5_2.launch
+```
+The third case show that the robot gets stuck in a local minima:
+```
+roslaunch exercise5 exercise5_3.launch
 ```

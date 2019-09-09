@@ -20,7 +20,7 @@ status robot_state;
 vect obstacles[N_OBSTACLES];
 int obs_pose_sent = 0;
 
-float turtle_radius = 2.5;
+float turtle_radius = 3;
 
 ros::Publisher vel_pub;
 ros::Subscriber pose_sub;
@@ -74,7 +74,7 @@ void reorient_robot(vect* force, float gain){
   /* Corrects robot orientation with proportional feedback control.*/
   
   geometry_msgs::Twist cmd;
-  ros::Rate moveRate(500);
+  ros::Rate moveRate(200);
   
   float angle = atan2(force->y, force->x) - robot_state.theta;
   
@@ -105,7 +105,7 @@ void move_to_goal(vect* goal, float lin_gain, float ang_gain){
   ROS_INFO("Moving towards goal");
   do{
     
-    force = compute_force(goal, 1.5, 1.5);
+    force = compute_force(goal, 1.5, 4);
     
     reorient_robot(&force, ang_gain);
 
