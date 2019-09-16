@@ -46,11 +46,11 @@ void randomControl(int limit){
   int rnd_linear = 0;
   int rnd_angular = 0;
  
-  rnd_linear = rand() % (limit*2+1) + (-limit);
-  rnd_angular = rand() % (limit*2+1) + (-limit);
+  rnd_linear = rand() % (limit * 2 + 1) + (-limit);
+  rnd_angular = rand() % (limit * 2 + 1) + (-limit);
   
-  ctrl.linear.x = (float)rnd_linear;
-  ctrl.angular.z = (float)rnd_angular;
+  ctrl.linear.x = (float)rnd_linear / 10.0;
+  ctrl.angular.z = (float)rnd_angular / 10.0;
     
 }
 
@@ -61,6 +61,7 @@ int main(int argc, char **argv){
     ros::Rate rate(1);
   
     float limit_pose_y = 5.5;
+    int rnd_limit_set = 20;
 
     srand(time(NULL)); // Initialize random seed with time
     
@@ -73,13 +74,13 @@ int main(int argc, char **argv){
     // Main control loop
     while(ros::ok())
     {     
-        if (pose_y < limit_pose_y)
+      if (pose_y < limit_pose_y)
         {    
-	  adjustPose(M_PI/2, 0.4, 2.0, 0.1);
+	       adjustPose(M_PI/2, 0.4, 2.0, 0.15);
         }
-        else
+      else
         {  
-	  randomControl(2);
+	       randomControl(rnd_limit_set);
         }
 
         pub.publish(ctrl);
